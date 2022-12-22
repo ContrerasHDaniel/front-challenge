@@ -152,13 +152,7 @@ const Component = ({
     let newWidth = e.lastEvent?.width;
     let newHeight = e.lastEvent?.height;
 
-    /*  const positionMaxTop = top + newHeight;
-    const positionMaxLeft = left + newWidth;
-
-    if (positionMaxTop > parentBounds?.height)
-      newHeight = parentBounds?.height - top;
-    if (positionMaxLeft > parentBounds?.width)
-      newWidth = parentBounds?.width - left; */
+    console.log(parent.getBoundingClientRect());
 
     const { lastEvent } = e;
     const { drag } = lastEvent;
@@ -217,6 +211,12 @@ const Component = ({
         zoom={1}
         origin={false}
         padding={{ left: 0, top: 0, right: 0, bottom: 0 }}
+        bounds={{
+          left: parent.left,
+          right: parent.right,
+          top: parent.top,
+          bottom: parent.bottom,
+        }}
       />
     </>
   );
